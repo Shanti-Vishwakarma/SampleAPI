@@ -1,7 +1,7 @@
 package com.shanti.service;
 
 import com.shanti.manager.TimeProcessManager;
-import com.shanti.response.Time;
+import com.shanti.response.TimeResponse;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -18,8 +18,8 @@ public class TimeService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTime() {
         invocationCount++;
-        Time time = processManager.execute();
-        time.setInvocationCount(invocationCount);
-        return Response.ok(time).build();
+        String currentTime = processManager.getCurrentTime();
+        TimeResponse timeResponse = new TimeResponse(currentTime, invocationCount);
+        return Response.ok(timeResponse).build();
     }
 }

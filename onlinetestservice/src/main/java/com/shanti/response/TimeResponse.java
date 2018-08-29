@@ -3,12 +3,13 @@ package com.shanti.response;
 
 import java.util.Objects;
 
-public class Time {
+public class TimeResponse {
 	private String currentTime;
 	private Integer invocationCount;
 
-	public Time(String currentTime) {
+	public TimeResponse(String currentTime, Integer invocationCount) {
 		this.currentTime = currentTime;
+		this.invocationCount = invocationCount;
 	}
 
 	public String getCurrentTime() {
@@ -31,7 +32,7 @@ public class Time {
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-		Time time = (Time) o;
+		TimeResponse time = (TimeResponse) o;
 		return Objects.equals(currentTime, time.currentTime) && Objects.equals(invocationCount, time.invocationCount);
 	}
 
@@ -42,6 +43,6 @@ public class Time {
 
 	@Override
 	public String toString() {
-		return "Time{" + "currentTime='" + currentTime + '\'' + ", invocationCount=" + invocationCount + '}';
+		return "TimeResponse{" + "currentTime='" + currentTime + '\'' + ", invocationCount=" + invocationCount + '}';
 	}
 }
