@@ -11,15 +11,15 @@ import javax.ws.rs.core.Response;
 
 @Path("/time")
 public class TimeService {
-    private static Integer counter = 0;
+    private static Integer invocationCount = 0;
     private TimeProcessManager processManager = new TimeProcessManager();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTime() {
-        counter++;
-        processManager.setInvocationCount(counter);
+        invocationCount++;
         Time time = processManager.execute();
+        time.setInvocationCount(invocationCount);
         return Response.ok(time).build();
     }
 }

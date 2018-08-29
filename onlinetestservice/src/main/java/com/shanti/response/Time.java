@@ -1,14 +1,14 @@
 package com.shanti.response;
 
+
 import java.util.Objects;
 
 public class Time {
 	private String currentTime;
 	private Integer invocationCount;
 
-	public Time(String currentTime, Integer invocationCount) {
+	public Time(String currentTime) {
 		this.currentTime = currentTime;
-		this.invocationCount = invocationCount;
 	}
 
 	public String getCurrentTime() {
